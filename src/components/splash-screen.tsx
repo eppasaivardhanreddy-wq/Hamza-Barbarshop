@@ -18,7 +18,7 @@ export function SplashScreen({ onComplete }: SplashScreenProps) {
     setShow(true);
     const t = setTimeout(() => {
       setShow(false);
-    }, 800);
+    }, 1300);
     return () => clearTimeout(t);
   }, []);
 
