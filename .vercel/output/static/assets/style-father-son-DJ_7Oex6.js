@@ -1,0 +1,1 @@
+const s="/assets/style-skin-fade-CmlsqSk2.jpg",e="/assets/style-classic-C5eKxdYG.jpg",t="/assets/style-beard-DNNE3gJx.jpg",a="/assets/style-shave-DYH8RiOz.jpg",l="/assets/style-modern-dANfHIkM.jpg",n="/assets/style-father-son-Bjm-WjL8.jpg";export{l as a,a as b,t as c,e as d,s as e,n as s};

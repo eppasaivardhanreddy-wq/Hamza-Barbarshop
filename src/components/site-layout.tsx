@@ -156,8 +156,12 @@ export function SiteLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
         <div className="border-t border-border/40">
-          <div className="mx-auto max-w-6xl px-5 sm:px-6 py-5 flex flex-col sm:flex-row justify-between gap-2 text-xs text-muted-foreground">
+          <div className="mx-auto max-w-6xl px-5 sm:px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
             <span>© {new Date().getFullYear()} Hamza's Barber Shop. {t("footer.rights")}</span>
+            <div className="flex gap-4">
+              <Link to="/impressum" className="hover:text-gold transition">Impressum</Link>
+              <Link to="/datenschutz" className="hover:text-gold transition">Datenschutzerklärung</Link>
+            </div>
             <span>{t("footer.madeIn")}</span>
           </div>
         </div>

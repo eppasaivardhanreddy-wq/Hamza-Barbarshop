@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Star } from "lucide-react";
+import { useState } from "react";
+import { MapPin, Phone, Mail, Clock, Instagram, Facebook, Star, Eye } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 
 export const Route = createFileRoute("/contact")({
@@ -16,6 +17,7 @@ export const Route = createFileRoute("/contact")({
 
 function ContactPage() {
   const { t } = useI18n();
+  const [showMap, setShowMap] = useState(false);
   return (
     <section className="mx-auto max-w-5xl px-5 sm:px-6 py-20">
       <div data-animate="up">
@@ -73,14 +75,33 @@ function ContactPage() {
           </div>
         </div>
 
-        <div data-animate="right" className="rounded-2xl overflow-hidden border border-border/60 aspect-square md:aspect-auto shadow-warm">
-          <iframe
-            title="Karte – Hamza's Barber Shop Koblenz"
-            src="https://www.google.com/maps?q=Hochstra%C3%9Fe+80,+56070+Koblenz&output=embed"
-            className="w-full h-full min-h-[360px]"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+        <div data-animate="right" className="rounded-2xl overflow-hidden border border-border/60 aspect-square md:aspect-auto shadow-warm min-h-[360px] relative bg-card/30 flex items-center justify-center">
+          {showMap ? (
+            <iframe
+              title="Karte – Hamza's Barber Shop Koblenz"
+              src="https://www.google.com/maps?q=Hochstra%C3%9Fe+80,+56070+Koblenz&output=embed"
+              className="w-full h-full min-h-[360px]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          ) : (
+            <div className="p-8 text-center flex flex-col items-center justify-center max-w-sm">
+              <div className="h-14 w-14 rounded-full bg-gold/10 flex items-center justify-center text-gold mb-5">
+                <MapPin size={28} />
+              </div>
+              <h3 className="font-display text-2xl mb-3">{t("contact.map.prompt")}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed mb-6">
+                {t("contact.map.desc")}
+              </p>
+              <button
+                onClick={() => setShowMap(true)}
+                className="inline-flex items-center gap-2 rounded-full bg-gold px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground hover:opacity-90 transition cursor-pointer"
+              >
+                <Eye size={14} />
+                {t("contact.map.btn")}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </section>
